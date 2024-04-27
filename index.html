@@ -4,87 +4,225 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Time Tales</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Georgia&display=swap" rel="stylesheet">
+    <style>
+        /* Reset styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Typography */
+        body {
+            font-family: 'Georgia', serif;
+            color: #333333;
+            background-color: #FFFFFF;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000000;
+        }
+
+        /* Layout */
+        header {
+            background-color: #D2B48C;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 1rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333333;
+            font-weight: bold;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        .story-card {
+            background-color: #F5F5F5;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .story-card img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        footer {
+            background-color: #333333;
+            color: #FFFFFF;
+            padding: 1rem;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <header>
+        <div class="logo">
+            <h1>Time Tales</h1>
+        </div>
         <nav>
-            <!-- Navigation menu -->
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Stories</a></li>
+                <li><a href="#">Articles</a></li>
+                <li><a href="#">Discussions</a></li>
+                <li><a href="#">Login/Register</a></li>
+            </ul>
         </nav>
     </header>
 
     <main>
         <section class="hero">
-            <!-- Hero section -->
+            <h2>Explore the Past, Imagine the Future</h2>
+            <p>Join our community of historical fiction enthusiasts and embark on a journey through time.</p>
+            <button>Start Reading</button>
         </section>
 
         <section class="featured-stories">
-            <!-- Featured stories -->
+            <h2>Featured Stories</h2>
+            <div class="story-card">
+                <img src="https://via.placeholder.com/300x200" alt="Story Image">
+                <h3>The Lost City of Atlantis</h3>
+                <p>A thrilling adventure that unravels the mysteries of the legendary lost city.</p>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <button>Read More</button>
+            </div>
+            <!-- Add more story cards here -->
         </section>
 
         <section class="categories">
-            <!-- Story categories -->
+            <h2>Explore Categories</h2>
+            <ul>
+                <li><a href="#">Historical Fiction</a></li>
+                <li><a href="#">Time Travel Adventures</a></li>
+                <li><a href="#">Historical Mysteries</a></li>
+                <li><a href="#">Author Interviews</a></li>
+            </ul>
         </section>
 
         <section class="articles">
-            <!-- Historical articles -->
+            <h2>Historical Articles</h2>
+            <div class="article-card">
+                <img src="https://via.placeholder.com/300x200" alt="Article Image">
+                <h3>The Rise and Fall of Ancient Rome</h3>
+                <p>Explore the fascinating history of one of the greatest civilizations in the world.</p>
+                <button>Read More</button>
+            </div>
+            <!-- Add more article cards here -->
         </section>
 
         <section class="discussions">
-            <!-- Discussion forums -->
+            <h2>Join the Discussions</h2>
+            <div class="discussion-card">
+                <h3>What if the American Revolution Never Happened?</h3>
+                <p>Share your thoughts and speculations on this intriguing historical scenario.</p>
+                <button>Join Discussion</button>
+            </div>
+            <!-- Add more discussion cards here -->
         </section>
 
         <section class="author-interviews">
-            <!-- Author interviews -->
+            <h2>Author Interviews</h2>
+            <div class="author-card">
+                <img src="https://via.placeholder.com/150x150" alt="Author Image">
+                <h3>Jane Austen</h3>
+                <p>Discover the life and works of the renowned author of Pride and Prejudice.</p>
+                <button>Read Interview</button>
+            </div>
+            <!-- Add more author cards here -->
         </section>
     </main>
 
     <footer>
-        <!-- Footer content -->
+        <p>&copy; 2023 Time Tales. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // User registration
+        const registrationForm = document.getElementById('registration-form');
+        registrationForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = registrationForm.elements.username.value;
+            const email = registrationForm.elements.email.value;
+            const password = registrationForm.elements.password.value;
+
+            // Here, you can send the registration data to your server
+            // using an AJAX request or fetch API
+
+            // Reset the form
+            registrationForm.reset();
+        });
+
+        // Story rating
+        const ratingStars = document.querySelectorAll('.rating .fa-star');
+        ratingStars.forEach((star, index) => {
+            star.addEventListener('click', () => {
+                const rating = index + 1;
+                // Here, you can send the rating data to your server
+                // using an AJAX request or fetch API
+            });
+        });
+
+        // Story comments
+        const commentForms = document.querySelectorAll('.comment-form');
+        commentForms.forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const comment = form.elements.comment.value;
+                // Here, you can send the comment data to your server
+                // using an AJAX request or fetch API
+
+                // Reset the form
+                form.reset();
+            });
+        });
+
+        // Discussion forums
+        const discussionForms = document.querySelectorAll('.discussion-form');
+        discussionForms.forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const topic = form.elements.topic.value;
+                const message = form.elements.message.value;
+                // Here, you can send the discussion data to your server
+                // using an AJAX request or fetch API
+
+                // Reset the form
+                form.reset();
+            });
+        });
+    </script>
 </body>
 </html>
-
-/* Reset styles */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-/* Typography */
-body {
-    font-family: 'Georgia', serif;
-    color: #333333; /* Increased contrast for body text */
-    background-color: #FFFFFF; /* Added white background for better contrast */
-}
-
-h1, h2, h3 {
-    font-family: 'Playfair Display', serif;
-    color: #000000; /* Increased contrast for headings */
-}
-
-/* Layout */
-header {
-    background-color: #D2B48C; /* Changed header background color for better contrast */
-    padding: 1rem;
-}
-
-main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-section {
-    margin-bottom: 4rem;
-}
-
-footer {
-    background-color: #333333; /* Increased contrast for footer background */
-    color: #FFFFFF; /* Increased contrast for footer text */
-    padding: 1rem;
-    text-align: center;
-}
